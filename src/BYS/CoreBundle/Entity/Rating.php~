@@ -100,45 +100,5 @@ class Rating
     {
         return $this->description;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->replies = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add reply
-     *
-     * @param \BYS\CoreBundle\Entity\Reply $reply
-     *
-     * @return Rating
-     */
-    public function addReply(\BYS\CoreBundle\Entity\Reply $reply)
-    {
-        $this->replies[] = $reply;
-
-        return $this;
-    }
-
-    /**
-     * Remove reply
-     *
-     * @param \BYS\CoreBundle\Entity\Reply $reply
-     */
-    public function removeReply(\BYS\CoreBundle\Entity\Reply $reply)
-    {
-        $this->replies->removeElement($reply);
-    }
-
-    /**
-     * Get replies
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getReplies()
-    {
-        return $this->replies;
-    }
 }
+
