@@ -43,6 +43,29 @@ class UserGroup
     private $proposals;
 
     /**
+     * @var
+     * @Orm\OneToMany(targetEntity="Membership", mappedBy="group")
+     */
+    private $members;
+
+    /**
+     * @var Person
+     *
+     * @ORM\ManyToOne(targetEntity="Person")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     */
+    private $owner;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->restaurants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -74,13 +97,6 @@ class UserGroup
     public function getName()
     {
         return $this->name;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->restaurants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -149,5 +165,63 @@ class UserGroup
     public function getProposals()
     {
         return $this->proposals;
+    }
+
+    /**
+     * Add member
+     *
+     * @param \BYS\CoreBundle\Entity\Membership $member
+     *
+     * @return UserGroup
+     */
+    public function addMember(\BYS\CoreBundle\Entity\Membership $member)
+    {
+        $this->members[] = $member;
+
+        return $this;
+    }
+
+    /**
+     * Remove member
+     *
+     * @param \BYS\CoreBundle\Entity\Membership $member
+     */
+    public function removeMember(\BYS\CoreBundle\Entity\Membership $member)
+    {
+        $this->members->removeElement($member);
+    }
+
+    /**
+     * Get members
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMembers()
+    {
+        return $this->members;
+    }
+
+    /**
+     * Set owner
+     *
+     * @param \BYS\CoreBundle\Entity\Person $owner
+     *
+     * @return UserGroup
+     */
+    public function setOwner(\BYS\CoreBundle\Entity\Person $owner = null)
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return \BYS\CoreBundle\Entity\Person
+     */
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }
