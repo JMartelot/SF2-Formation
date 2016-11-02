@@ -29,8 +29,6 @@ class UserGroup
     private $name;
 
     /**
-     * @var \Doctrine\Common\Collections\ArrayCollection
-     *
      * @ORM\OneToMany(targetEntity="Restaurant", mappedBy="group")
      */
     private $restaurants;
@@ -68,45 +66,5 @@ class UserGroup
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->restaurants = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add restaurant
-     *
-     * @param \BYS\CoreBundle\Entity\Restaurant $restaurant
-     *
-     * @return UserGroup
-     */
-    public function addRestaurant(\BYS\CoreBundle\Entity\Restaurant $restaurant)
-    {
-        $this->restaurants[] = $restaurant;
-
-        return $this;
-    }
-
-    /**
-     * Remove restaurant
-     *
-     * @param \BYS\CoreBundle\Entity\Restaurant $restaurant
-     */
-    public function removeRestaurant(\BYS\CoreBundle\Entity\Restaurant $restaurant)
-    {
-        $this->restaurants->removeElement($restaurant);
-    }
-
-    /**
-     * Get restaurants
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getRestaurants()
-    {
-        return $this->restaurants;
-    }
 }
+

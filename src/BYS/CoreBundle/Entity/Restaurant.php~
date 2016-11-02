@@ -29,12 +29,11 @@ class Restaurant
     private $name;
 
     /**
-     * @var UserGroup
+     * @var
      *
      * @ORM\ManyToOne(targetEntity="UserGroup", inversedBy="restaurants")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
      */
-
     private $group;
 
 
@@ -71,28 +70,5 @@ class Restaurant
     {
         return $this->name;
     }
-
-    /**
-     * Set group
-     *
-     * @param \BYS\CoreBundle\Entity\UserGroup $group
-     *
-     * @return Restaurant
-     */
-    public function setGroup(\BYS\CoreBundle\Entity\UserGroup $group = null)
-    {
-        $this->group = $group;
-
-        return $this;
-    }
-
-    /**
-     * Get group
-     *
-     * @return \BYS\CoreBundle\Entity\UserGroup
-     */
-    public function getGroup()
-    {
-        return $this->group;
-    }
 }
+
