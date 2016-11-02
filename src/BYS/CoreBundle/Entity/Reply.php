@@ -28,6 +28,30 @@ class Reply
      */
     private $reallyPresent;
 
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Person", inversedBy="replies")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     */
+    private $person;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Proposal", inversedBy="replies")
+     * @ORM\JoinColumn(name="proposal_id", referencedColumnName="id")
+     */
+    private $proposal;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Rating", inversedBy="replies")
+     * @ORM\JoinColumn(name="rating_id", referencedColumnName="id")
+     */
+    private $rating;
+
 
     /**
      * Get id
