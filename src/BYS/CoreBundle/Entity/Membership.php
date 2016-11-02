@@ -46,6 +46,21 @@ class Membership
 
 
     /**
+     * @var
+     *
+     * @ORM\OneToMany(targetEntity="Availability", mappedBy="membership")
+     */
+    private $availability;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->availability = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -89,8 +104,6 @@ class Membership
     public function setGroup(\BYS\CoreBundle\Entity\UserGroup $group = null)
     {
         $this->group = $group;
-
-        return $this;
     }
 
     /**
@@ -125,5 +138,39 @@ class Membership
     public function getPerson()
     {
         return $this->person;
+    }
+
+    /**
+     * Add availability
+     *
+     * @param \BYS\CoreBundle\Entity\Availability $availability
+     *
+     * @return Membership
+     */
+    public function addAvailability(\BYS\CoreBundle\Entity\Availability $availability)
+    {
+        $this->availability[] = $availability;
+
+        return $this;
+    }
+
+    /**
+     * Remove availability
+     *
+     * @param \BYS\CoreBundle\Entity\Availability $availability
+     */
+    public function removeAvailability(\BYS\CoreBundle\Entity\Availability $availability)
+    {
+        $this->availability->removeElement($availability);
+    }
+
+    /**
+     * Get availability
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAvailability()
+    {
+        return $this->availability;
     }
 }

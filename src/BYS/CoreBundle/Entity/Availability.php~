@@ -131,28 +131,5 @@ class Availability
     {
         return $this->isPresent;
     }
-
-    /**
-     * Set membership
-     *
-     * @param \BYS\CoreBundle\Entity\membership $membership
-     *
-     * @return Availability
-     */
-    public function setMembership(\BYS\CoreBundle\Entity\membership $membership = null)
-    {
-        $this->membership = $membership;
-
-        return $this;
-    }
-
-    /**
-     * Get membership
-     *
-     * @return \BYS\CoreBundle\Entity\membership
-     */
-    public function getMembership()
-    {
-        return $this->membership;
-    }
 }
+

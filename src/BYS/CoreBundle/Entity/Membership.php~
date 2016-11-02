@@ -28,6 +28,7 @@ class Membership
      */
     private $groupName;
 
+<<<<<<< HEAD
     /**
      * @var UserGroup
      *
@@ -44,6 +45,15 @@ class Membership
      */
     private $person;
 
+=======
+
+    /**
+     * @var
+     *
+     * @ORM\OneToMany(targetEntity="Availability", mappedBy="membership")
+     */
+    private $availability;
+>>>>>>> availa and membership
 
     /**
      * Get id
@@ -79,3 +89,7 @@ class Membership
         return $this->groupName;
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> availa and membership
