@@ -86,5 +86,76 @@ class Reply
     {
         return $this->reallyPresent;
     }
-}
 
+    /**
+     * Set person
+     *
+     * @param \BYS\CoreBundle\Entity\Person $person
+     *
+     * @return Reply
+     */
+    public function setPerson(\BYS\CoreBundle\Entity\Person $person = null)
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * Get person
+     *
+     * @return \BYS\CoreBundle\Entity\Person
+     */
+    public function getPerson()
+    {
+        return $this->person;
+    }
+
+    /**
+     * Set proposal
+     *
+     * @param \BYS\CoreBundle\Entity\Proposal $proposal
+     *
+     * @return Reply
+     */
+    public function setProposal(\BYS\CoreBundle\Entity\Proposal $proposal = null)
+    {
+        $this->proposal = $proposal;
+
+        return $this;
+    }
+
+    /**
+     * Get proposal
+     *
+     * @return \BYS\CoreBundle\Entity\Proposal
+     */
+    public function getProposal()
+    {
+        return $this->proposal;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param \BYS\CoreBundle\Entity\Rating $rating
+     *
+     * @return Reply
+     */
+    public function setRating(\BYS\CoreBundle\Entity\Rating $rating = null)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return \BYS\CoreBundle\Entity\Rating
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+}

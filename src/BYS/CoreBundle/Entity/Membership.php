@@ -63,4 +63,3 @@ class Membership
         return $this->groupName;
     }
 }
-
