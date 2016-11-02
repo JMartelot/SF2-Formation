@@ -34,7 +34,6 @@ class Restaurant
      * @ORM\ManyToOne(targetEntity="UserGroup", inversedBy="restaurants")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
      */
-
     private $group;
 
 
