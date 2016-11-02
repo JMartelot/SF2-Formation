@@ -125,4 +125,3 @@ class Availability
         return $this->isPresent;
     }
 }
-

@@ -56,6 +56,19 @@ class Person
      */
     private $alias;
 
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Proposal", mappedBy="owner")
+     */
+    private $proposals;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Reply", mappedBy="person")
+     */
+    private $replies;
 
     /**
      * Get id
@@ -186,5 +199,80 @@ class Person
     {
         return $this->alias;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->proposals = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->replies = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add proposal
+     *
+     * @param \BYS\CoreBundle\Entity\Proposal $proposal
+     *
+     * @return Person
+     */
+    public function addProposal(\BYS\CoreBundle\Entity\Proposal $proposal)
+    {
+        $this->proposals[] = $proposal;
+
+        return $this;
+    }
+
+    /**
+     * Remove proposal
+     *
+     * @param \BYS\CoreBundle\Entity\Proposal $proposal
+     */
+    public function removeProposal(\BYS\CoreBundle\Entity\Proposal $proposal)
+    {
+        $this->proposals->removeElement($proposal);
+    }
+
+    /**
+     * Get proposals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProposals()
+    {
+        return $this->proposals;
+    }
+
+    /**
+     * Add reply
+     *
+     * @param \BYS\CoreBundle\Entity\Reply $reply
+     *
+     * @return Person
+     */
+    public function addReply(\BYS\CoreBundle\Entity\Reply $reply)
+    {
+        $this->replies[] = $reply;
+
+        return $this;
+    }
+
+    /**
+     * Remove reply
+     *
+     * @param \BYS\CoreBundle\Entity\Reply $reply
+     */
+    public function removeReply(\BYS\CoreBundle\Entity\Reply $reply)
+    {
+        $this->replies->removeElement($reply);
+    }
+
+    /**
+     * Get replies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReplies()
+    {
+        return $this->replies;
+    }
+}

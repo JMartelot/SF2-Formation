@@ -36,6 +36,13 @@ class UserGroup
     private $restaurants;
 
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Proposal", mappedBy="group")
+     */
+    private $proposals;
+
+    /**
      * Get id
      *
      * @return int
@@ -108,5 +115,39 @@ class UserGroup
     public function getRestaurants()
     {
         return $this->restaurants;
+    }
+
+    /**
+     * Add proposal
+     *
+     * @param \BYS\CoreBundle\Entity\Proposal $proposal
+     *
+     * @return UserGroup
+     */
+    public function addProposal(\BYS\CoreBundle\Entity\Proposal $proposal)
+    {
+        $this->proposals[] = $proposal;
+
+        return $this;
+    }
+
+    /**
+     * Remove proposal
+     *
+     * @param \BYS\CoreBundle\Entity\Proposal $proposal
+     */
+    public function removeProposal(\BYS\CoreBundle\Entity\Proposal $proposal)
+    {
+        $this->proposals->removeElement($proposal);
+    }
+
+    /**
+     * Get proposals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProposals()
+    {
+        return $this->proposals;
     }
 }
