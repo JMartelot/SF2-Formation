@@ -15,10 +15,14 @@ class PersonType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('passwordDigest')
+            ->add('passwordDigest', 'password', array(
+                'label' => 'Password'
+            ))
             ->add('firstname')
             ->add('lastname')
-            ->add('alias')        ;
+            ->add('alias')
+            ->add('create', 'submit', array(
+            ));
     }
     
     /**

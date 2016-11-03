@@ -24,6 +24,11 @@ class PersonController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $logger = $this->get('logger');
+
+        $logger->info('Info log');
+        $logger->error('Error log');
+
         $people = $em->getRepository('BYSCoreBundle:Person')->findAll();
 
         return $this->render('person/index.html.twig', array(

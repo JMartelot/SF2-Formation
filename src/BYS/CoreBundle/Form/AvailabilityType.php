@@ -13,7 +13,7 @@ class AvailabilityType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('freeFrom')->add('isPresent')->add('membership')        ;
+        $builder->add('date', 'date')->add('freeFrom')->add('isPresent')->add('membership')        ;
     }
     
     /**
