@@ -13,7 +13,7 @@ use BYS\CoreBundle\Entity\Availability;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadAvailability implements FixtureInterface
+class LoadAvailabilityData implements FixtureInterface
 {
     /**
      * Load data fixtures with the passed EntityManager

@@ -25,7 +25,7 @@ class LoadUserGroupData implements FixtureInterface
         for ($i=0; $i<10; $i++){
             $userGroup = new UserGroup();
             $userGroup->setName('BYS');
-            $userGroup->setOwner($this->getReference('person'));
+            $userGroup->setOwner($this->getReference('person'.rand(0,9)));
 
             $manager->persist($userGroup);
 
