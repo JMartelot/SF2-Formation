@@ -22,9 +22,11 @@ class LoadUserGroupData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create();
+
         for ($i=0; $i<10; $i++){
             $userGroup = new UserGroup();
-            $userGroup->setName('BYS');
+            $userGroup->setName($faker->company);
             $userGroup->setOwner($this->getReference('person'.rand(0,9)));
 
             $manager->persist($userGroup);
@@ -32,8 +34,6 @@ class LoadUserGroupData implements FixtureInterface
             $this->addReference('user-group'.$i, $userGroup);
         }
         $manager->flush();
-
-
     }
 
     public function getOrder(){

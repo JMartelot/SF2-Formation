@@ -3,6 +3,7 @@
 namespace BYS\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Person
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="person")
  * @ORM\Entity(repositoryClass="BYS\CoreBundle\Repository\PersonRepository")
  */
-class Person
+class Person 
 {
     /**
      * @var int

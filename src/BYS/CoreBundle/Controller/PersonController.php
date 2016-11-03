@@ -5,7 +5,9 @@ namespace BYS\CoreBundle\Controller;
 use BYS\CoreBundle\Entity\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Person controller.
@@ -18,16 +20,12 @@ class PersonController extends Controller
      * Lists all person entities.
      *
      * @Route("/", name="person_index")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $logger = $this->get('logger');
-
-        $logger->info('Info log');
-        $logger->error('Error log');
 
         $people = $em->getRepository('BYSCoreBundle:Person')->findAll();
 
