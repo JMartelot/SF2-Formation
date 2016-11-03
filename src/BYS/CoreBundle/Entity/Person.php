@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table(name="person")
  * @ORM\Entity(repositoryClass="BYS\CoreBundle\Repository\PersonRepository")
  */
-class Person
+class Person 
 {
     /**
      * @var int
