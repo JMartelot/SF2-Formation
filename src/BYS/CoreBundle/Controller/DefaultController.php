@@ -10,6 +10,8 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/{name}")
+     * @param $name
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction($name)
     {
