@@ -23,7 +23,7 @@ class Availability
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="membership", inversedBy="availability")
+     * @ORM\ManyToOne(targetEntity="Membership", inversedBy="availability")
      * @ORM\JoinColumn(name="membership_id", referencedColumnName="id")
      */
     private $membership;
