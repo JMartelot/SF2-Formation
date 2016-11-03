@@ -315,4 +315,9 @@ class Person
     {
         return $this->groups;
     }
+
+    function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
 }
