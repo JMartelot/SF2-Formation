@@ -3,8 +3,6 @@
 {% block body %}
     <h1>People list</h1>
 
-    {{ dump(people) }}
-
     <table>
         <thead>
             <tr>
@@ -41,9 +39,13 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('person_new') }}">Create a new person</a>
-        </li>
-    </ul>
+    {% if is_granted('ROLE_ADMIN') %}
+        <ul>
+            <li>
+                <a href="{{ path('person_new') }}">Create a new person</a>
+            </li>
+        </ul>
+    {% else %}
+        <label class="text-danger">Tu ne peux pas créer d'utilisateur</label>
+    {% endif %}
 {% endblock %}
