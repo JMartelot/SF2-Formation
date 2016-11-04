@@ -1,3 +1,7 @@
+bys_turbolinks:
+    resource: "@BYSTurbolinksBundle/Resources/config/routing.xml"
+    prefix:   /
+
 bys_core:
     resource: "@BYSCoreBundle/Controller/"
     type:     annotation
